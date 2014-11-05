@@ -48,7 +48,7 @@ class SerialData(object):
         return self.ser.isOpen()
 
     def connect(self):
-        """ Actually set up the Thrad and connect to serial """
+        """ Actually set up the thread and connect to serial """
 
         self.logger.info('Serial connect called')
         if not self.ser.isOpen():
