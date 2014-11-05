@@ -52,16 +52,13 @@ class Mount(AbstractMount):
             actual_mount_info = self.serial_query('mount_info')
 
             expected_version = self.commands.get('version').get('response')
-            expected_mount_info = self.commands.get(
-                'mount_info').get('response')
+            expected_mount_info = self.commands.get('mount_info').get('response')
             self.is_initialized = False
 
             # Test our init procedure for iOptron
             if actual_version != expected_version or actual_mount_info != expected_mount_info:
-                self.logger.debug(
-                    '{} != {}'.format(actual_version, expected_version))
-                self.logger.debug(
-                    '{} != {}'.format(actual_mount_info, expected_mount_info))
+                self.logger.debug('{} != {}'.format(actual_version, expected_version))
+                self.logger.debug('{} != {}'.format(actual_mount_info, expected_mount_info))
                 raise error.MountNotFound('Problem initializing mount')
             else:
                 self.is_initialized = True
