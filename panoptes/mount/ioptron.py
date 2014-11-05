@@ -6,6 +6,7 @@ from astropy.coordinates import SkyCoord
 from panoptes.mount.mount import AbstractMount
 from panoptes.utils import logger, config, param_server, error
 
+
 @logger.set_log_level('debug')
 @logger.has_logger
 class Mount(AbstractMount):
@@ -25,7 +26,6 @@ class Mount(AbstractMount):
         self._dec_format = re.compile(
             '(?P<sign>[\+\-])(?P<degree>\d{2})\*(?P<minute>\d{2}):(?P<second>\d{2})')
         self.logger.info('Mount created')
-
 
     def initialize(self):
         """
@@ -70,7 +70,6 @@ class Mount(AbstractMount):
 
         return self.is_initialized
 
-
     def _mount_coord_to_skycoord(self, mount_ra, mount_dec):
         """
         Converts between iOptron RA/Dec format and a SkyCoord
@@ -103,7 +102,6 @@ class Mount(AbstractMount):
                 "Cannot create SkyCoord from mount coordinates")
 
         return coords
-
 
     def _skycoord_to_mount_coord(self, coords):
         """
